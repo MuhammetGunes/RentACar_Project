@@ -13,8 +13,8 @@ namespace ConsoleUI
         {
             //BrandCRUDTest();
             //ColorCRUDTest();
-            DTOTest();
-            //CarCRUDTest();
+            //DTOTest();
+            CarCRUDTest();
         }
 
         private static void BrandCRUDTest()
@@ -27,7 +27,7 @@ namespace ConsoleUI
             //brandManager.Add(new Brand { BrandId = 9, BrandName = "Bugatti" });
             //brandManager.Delete(new Brand { BrandId = 8});
             //brandManager.Update(new Brand { BrandId = 6, BrandName= "Chevrolet"});
-            foreach (var brand in brandManager.GetById(9))
+            foreach (var brand in brandManager.GetById(9).Data)
             {
                 Console.WriteLine(brand.BrandName);
             }
@@ -43,7 +43,7 @@ namespace ConsoleUI
             //colorManager.Add( new Color { ColorId = 9, ColorName = "Mor"});
             //colorManager.Delete(new Color { ColorId = 5});
             //colorManager.Update(new Color { ColorId=6, ColorName="Turkuaz"});
-            foreach (var color in colorManager.GetById(8))
+            foreach (var color in colorManager.GetById(8).Data)
             {
                 Console.WriteLine(color.ColorName);
             }
@@ -52,10 +52,20 @@ namespace ConsoleUI
         private static void DTOTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+            if (result.Success == true)
             {
-                Console.WriteLine("{0} / {1} / {2} / {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine("{0} / {1} / {2} / {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
+                    Console.WriteLine(result.Message);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+            
         }
 
         private static void CarCRUDTest()
@@ -64,14 +74,25 @@ namespace ConsoleUI
             //Car carAdd = new Car { Id = 6, Description = "Megane", BrandId = 5, ColorId = 6, DailyPrice = 109, ModelYear = 2010 };
             //carManager.Add(carAdd);
             //carManager.Add(new Car { Id = 7, Description = "Camaro", BrandId = 6, ColorId = 7, DailyPrice = 109, ModelYear = 2018 });
-            carManager.Add(new Car { Id = 11, Description = "Bentayga", BrandId = 7, ColorId = 8, DailyPrice = 444, ModelYear = 2017 });
+            //carManager.Add(new Car { Id = 11, Description = "Bentayga", BrandId = 7, ColorId = 8, DailyPrice = 444, ModelYear = 2017 });
             //carManager.Add(new Car { Id = 15, Description = "Chiron", BrandId = 9, ColorId = 9, DailyPrice = 74, ModelYear = 2019 });
+            //carManager.Add(new Car { Id = 42, Description = "Wraith", BrandId = 22, ColorId = 41, DailyPrice = 1000, ModelYear = 2019 });
+            //carManager.Add(new Car { Id = 43, Description = "Ghost", BrandId = 23, ColorId = 42, DailyPrice = 1005, ModelYear = 2018 });
+            var result = carManager.Add(new Car { Id = 54, Description = "Dawn", BrandId = 2737, ColorId = 44220, DailyPrice = 78, ModelYear = 2018 });
+            if(result.Success == true)
+            {
+                Console.WriteLine(result.Message);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
             //carManager.Delete(new Car { Id = 6});
 
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine(car.Description);
-            }
+            //foreach (var car in carManager.GetAll().Data)
+            //{
+             //   Console.WriteLine(car.Description);
+            //}
             //Console.WriteLine("//////////");
             //foreach (var car in carManager.GetCarsByColorId(78))
             //{
