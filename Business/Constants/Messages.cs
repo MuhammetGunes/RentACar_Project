@@ -26,5 +26,8 @@ namespace Business.Constants
         public static string ListedRentals = "Kiralama bilgileri Listelendi";
         public static string UpdatedRental = "Kiralama bilgileri güncellendi";
         public static string DeletedRental = "Kiralama bilgisi silindi";
+        public static string NotDeliveredRental = "Kiralama yapılamaz.";
+        public static string DeliveredRental = "Kiralama başarılı.";
+
     }
 }

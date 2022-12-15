@@ -14,7 +14,54 @@ namespace ConsoleUI
             //BrandCRUDTest();
             //ColorCRUDTest();
             //DTOTest();
-            CarCRUDTest();
+            //CarCRUDTest();
+            //UserManagerTest();
+            //CustomerManagerTest();
+            RentalManagerTest();
+        }
+
+        private static void RentalManagerTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            //rentalManager.Add(new Rental { Id = 10, CarId = 10, CustomerId = 1, RentDate = DateTime.Now });
+            //rentalManager.Add(new Rental { Id = 11, CarId = 11, CustomerId = 3, RentDate = DateTime.Now });
+            //rentalManager.Delete(new Rental { Id = 10});
+            var result = rentalManager.Add(new Rental { Id = 12, CarId = 11, CustomerId = 1, RentDate = DateTime.Now });
+            Console.WriteLine(result.Message);
+            //var result = rentalManager.GetAll();
+            //foreach (var rent in result.Data)
+            //{
+            //    Console.WriteLine(rent.CustomerId);
+            //}
+        }
+
+        private static void CustomerManagerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer { UserId = 8, CompanyName = "Yollar" });
+            customerManager.Update(new Customer { UserId = 8, CompanyName = "HasYollar" });
+            customerManager.Delete(new Customer { UserId = 8 });
+            var result2 = customerManager.GetAll();
+            foreach (var customer in result2.Data)
+            {
+                Console.WriteLine(customer.CompanyName);
+            }
+        }
+
+        private static void UserManagerTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(new User { Id = 4, FirstName = "Hakatn", LastName = "Ert", Email = "abcr@hotmail.com", Password = "1253456" });
+            userManager.Add(new User { Id = 5, FirstName = "Bettül", LastName = "Atk", Email = "abcdr@hotmail.com", Password = "12534567" });
+            userManager.Add(new User { Id = 6, FirstName = "Enets", LastName = "Ertgün", Email = "abrcde@hotmail.com", Password = "15234568" });
+            userManager.Add(new User { Id = 8, FirstName = "nets", LastName = "Erün", Email = "abrce@hotmail.com", Password = "15234568" });
+            userManager.Delete(new User { Id = 7 });
+            userManager.Update(new User { Id = 8, FirstName = "Enesiye", LastName = "Ercan", Email = "abr@hotmail.com", Password = "1524568" });
+            var result = userManager.GetAll();
+            foreach (var user in result.Data)
+            {
+                Console.WriteLine(user.FirstName);
+            }
         }
 
         private static void BrandCRUDTest()
