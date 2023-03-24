@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -51,12 +52,12 @@ namespace ConsoleUI
         private static void UserManagerTest()
         {
             UserManager userManager = new UserManager(new EfUserDal());
-            userManager.Add(new User { Id = 4, FirstName = "Hakatn", LastName = "Ert", Email = "abcr@hotmail.com", Password = "1253456" });
-            userManager.Add(new User { Id = 5, FirstName = "Bettül", LastName = "Atk", Email = "abcdr@hotmail.com", Password = "12534567" });
-            userManager.Add(new User { Id = 6, FirstName = "Enets", LastName = "Ertgün", Email = "abrcde@hotmail.com", Password = "15234568" });
-            userManager.Add(new User { Id = 8, FirstName = "nets", LastName = "Erün", Email = "abrce@hotmail.com", Password = "15234568" });
-            userManager.Delete(new User { Id = 7 });
-            userManager.Update(new User { Id = 8, FirstName = "Enesiye", LastName = "Ercan", Email = "abr@hotmail.com", Password = "1524568" });
+            //userManager.Add(new User { Id = 4, FirstName = "Hakatn", LastName = "Ert", Email = "abcr@hotmail.com", Password = "1253456" });
+            //userManager.Add(new User { Id = 5, FirstName = "Bettül", LastName = "Atk", Email = "abcdr@hotmail.com", Password = "12534567" });
+            //userManager.Add(new User { Id = 6, FirstName = "Enets", LastName = "Ertgün", Email = "abrcde@hotmail.com", Password = "15234568" });
+            //userManager.Add(new User { Id = 8, FirstName = "nets", LastName = "Erün", Email = "abrce@hotmail.com", Password = "15234568" });
+            //userManager.Delete(new User { Id = 7 });
+            //userManager.Update(new User { Id = 8, FirstName = "Enesiye", LastName = "Ercan", Email = "abr@hotmail.com", Password = "1524568" });
             var result = userManager.GetAll();
             foreach (var user in result.Data)
             {

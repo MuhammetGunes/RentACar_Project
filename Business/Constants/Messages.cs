@@ -29,5 +29,11 @@ namespace Business.Constants
         public static string NotDeliveredRental = "Kiralama yapılamaz.";
         public static string DeliveredRental = "Kiralama başarılı.";
 
+        public static string UserNotFound = "Kullanıcı bulunamadı.";
+        public static string PasswordError = "Şifre hatalı..";
+        public static string SuccessfulLogin = "Başarılı giriş..";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut..";
+        public static string UserRegistered = "Kullanıcı kaydedildi..";
+        public static string AccessTokenCreated = "Token oluşturuldu..";
     }
 }
