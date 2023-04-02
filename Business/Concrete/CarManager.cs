@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
@@ -23,6 +25,8 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
+        //[SecuredOperation("car.add,admin")]
+        [CacheRemoveAspect("Get")]
         public IResult Add(Car car)
         {
             //ValidationTool.Validate(new CarValidator(), car);
@@ -36,11 +40,13 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll());
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetById(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.Id == id));
