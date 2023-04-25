@@ -74,5 +74,10 @@ namespace Business.Concrete
             _carDal.Update(car);
             return new SuccessResult();
         }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailByCarId(carId));
+        }
     }
 }
