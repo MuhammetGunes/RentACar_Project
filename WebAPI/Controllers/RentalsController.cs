@@ -74,28 +74,5 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
-        [HttpGet("getrental")]
-        public IActionResult GetRentalDetails()
-        {
-            var result = _rentalService.GetRentalDetails();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("rulesforadding")]
-        public IActionResult RulesForAdding(Rental rental)
-        {
-            var result = _rentalService.RulesForAdding(rental);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
     }
 }
