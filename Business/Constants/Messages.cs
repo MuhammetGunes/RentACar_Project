@@ -37,5 +37,9 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Token oluşturuldu..";
 
         public static string AuthorizationDenied = "Yetkiniz bulunmamaktadır.";
+        public static string CarCanNotRentable = "Bu araba kiralanamaz";
+        public static string CarCanRentable = "Bu araba kiralanabilir";
+        public static string ThisCarIsAlreadyRentedInSelectedDateRange = "Bu araba zaten seçilen tarih aralığında kiralandıBu araba zaten seçilen tarih aralığında kiralandı.";
+
     }
 }
