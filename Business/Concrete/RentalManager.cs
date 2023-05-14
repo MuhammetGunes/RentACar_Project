@@ -63,6 +63,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(), Messages.ListedRentals);
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult RulesForAdding(Rental entity)
         {
             var result = BusinessRules.Run(
