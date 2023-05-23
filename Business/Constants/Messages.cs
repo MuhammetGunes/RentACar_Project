@@ -39,7 +39,15 @@ namespace Business.Constants
         public static string AuthorizationDenied = "Yetkiniz bulunmamaktadır.";
         public static string CarCanNotRentable = "Bu araba kiralanamaz";
         public static string CarCanRentable = "Bu araba kiralanabilir";
-        public static string ThisCarIsAlreadyRentedInSelectedDateRange = "Bu araba zaten seçilen tarih aralığında kiralandıBu araba zaten seçilen tarih aralığında kiralandı.";
+        public static string ReturnDateIsBeforeRentDate = "Teslim tarihi kiralama tarihinden önce olamaz.";
+        public static string ThisCarIsAlreadyRentedInSelectedDateRange = "Bu araba zaten seçilen tarih aralığında kiralandı.";
+
+        public static string PaymentAdded = "Kart eklendi.";
+        public static string PaymentUpdated = "Kart güncellendi.";
+        public static string PaymentDeleted = "Kart silindi.";
+        public static string PaymentListed = "Kart listelendi.";
+        public static string PayIsSuccessfull = "Ödeme Başarılı.";
+        public static string CardInformationIsIncorrect = "Kart Bilgileri Hatalı.";
 
     }
 }

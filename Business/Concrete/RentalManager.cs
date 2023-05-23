@@ -117,7 +117,7 @@ namespace Business.Concrete
             if (returnDate != null)
                 if (returnDate < rentDate)
                 {
-                    return new ErrorResult(Messages.ThisCarIsAlreadyRentedInSelectedDateRange);
+                    return new ErrorResult(Messages.ReturnDateIsBeforeRentDate);
                 }
             return new SuccessResult();
         }

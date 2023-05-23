@@ -21,7 +21,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ColorValidator))]
-        [SecuredOperation("car.add,admin")]
+        //[SecuredOperation("car.add,admin")]
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
